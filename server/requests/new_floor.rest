@@ -1,0 +1,9 @@
+POST http://localhost:3001/floor HTTP/1.1 content-type: application/json
+
+{
+    "id": "MC_FLOOR_2",
+    "count": 700,
+    "coord_x": -345345345,
+    "coord_y": -398573759,
+    "coord_z": -34853534
+}

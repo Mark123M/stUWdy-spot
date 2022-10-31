@@ -13,6 +13,7 @@ import { ColorModeSwitcher } from './ColorModeSwitcher';
 //import { Logo } from './Logo';
 
 function App() {
+  //console.log(process.env.REACT_APP_SECRET_NAME)
   return (
     <ChakraProvider theme={theme}>
       <ColorModeSwitcher/>
