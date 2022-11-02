@@ -11,7 +11,7 @@ console.log(typeof age)
 // Concatenation
 // console.log('My name is ' + name + ' and I am ' + age);
 
-// Template String
+// Template String (better concat)
 console.log(`My name is ${name} and I am ${age}`)
 
 
@@ -86,7 +86,7 @@ todos.forEach(function(todo) {
 
 // Map
 // Same formatting as for each, except the output is a list
-// This time the function is defined by itself
+// This time we defined the function outside of the map() call
 const todoText = todos.map(todoFunction);
 function todoFunction(item, index, arr) {
   return item.text;
@@ -123,7 +123,7 @@ if (a === 10) {
 // Note that a > 10 is false, so color = 'blue'
 const color = a > 10 ? 'red' : 'blue'
 
-// Switches
+// Switches (same as Java)
 switch(color) {
   case 'red':
     console.log('color is red');
@@ -139,10 +139,12 @@ switch(color) {
 // Arrow Functions
 // num1 = 1 sets 1 as the default value if no value is passed in the function call
 // Lot of different ways to condense, see examples
+
 // No condensing
 const addNums = (num1 = 1, num2 = 2) => {
   return num1 + num2;
 }
+// Condensed
 const subNums = (num1 = 1, num2 = 1) => num1 - num2;
 const add1 = num1 => num1 + 1;
 
@@ -155,6 +157,7 @@ todos.forEach((todo) => console.log(todo.text));
 
 // OOP
 // Note that we used the date constructor to turn dob into a different datatype. Now we can call different methods relating to date/time onto dob
+
 function Person(firstName, lastName, dob) {
   this.firstName = firstName;
   this.lastName = lastName;
@@ -164,13 +167,35 @@ function Person(firstName, lastName, dob) {
   this.getBirthyear = function() {
     return this.dob.getFullYear();
   }
-  this.getFullname = function() {
-    return `${this.firstName} ${this.lastName}`;
-  }
 }
+
+// Better way to do methods
+Person.prototype.getFullName = function() {
+  return `${this.firstName} ${this.lastName}`;
+}
+
+
+// Better way to do the entire OOP (CLASSES)
+// For some reason it's not working...
+// Error on line 198: The 'const' modifier can only be used in TypeScript
+/*
+class Person {
+  constructor(firstName, lastName, dob) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = new Date(dob);
+  }
+
+  getBirthyear() {
+    return this.dob.getFullYear();
+  }
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+}
+*/
 
 // Instantiate an object
 const person1 = new Person('Kanye', 'East', '04-20-1969');
 console.log(person1);
 console.log(person1.getBirthyear());
-console.log(person1.getFullname())
+console.log(person1.getFullName());
